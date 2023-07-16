@@ -1,7 +1,7 @@
 .calendar {
   display: grid;
   font-family: sans-serif;
-  grid-template-columns: repeat(22, minmax(6em, 1fr));
+  grid-template-columns: 3em repeat(21, minmax(6em, 1fr));
   grid-template-rows: 24px repeat(64, 18px);
 }
 
@@ -11,7 +11,7 @@
 }
 
 .day {
+  grid-row: 1 / 65;
   border-left: 1px solid #ccc;
   text-align: center;
-  grid-row: 1 / 65;
 }
