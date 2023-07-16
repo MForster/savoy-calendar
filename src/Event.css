@@ -1,0 +1,44 @@
+.event {
+  font-size: 0.8em;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 2px 1px 1px 2px;
+  border: 1px solid #000;
+}
+
+.event > header {
+  color: #fff;
+  background: #000;
+  padding: 1px 5px;
+  font-weight: bold;
+}
+
+.event > p {
+  margin: 0px;
+  padding: 2px 5px;
+}
+
+.event.standard  {
+  background: #ffe;
+}
+.event.standard > header {
+  background: #ff0;
+  color: #000;
+}
+
+.event.latein  {
+  background: #fee;
+}
+.event.latein > header {
+  background: #f00;
+  color: #fff;
+}
+
+.event.breitensport  {
+  background: #efe;
+}
+.event.breitensport > header {
+  background: #0f0;
+  color: #000;
+}

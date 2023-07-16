@@ -1,0 +1,17 @@
+.calendar {
+  display: grid;
+  font-family: sans-serif;
+  grid-template-columns: repeat(22, minmax(6em, 1fr));
+  grid-template-rows: 24px repeat(64, 18px);
+}
+
+.hour {
+  grid-column: 1 / 23;
+  border-top: 1px solid #ccc;
+}
+
+.day {
+  border-left: 1px solid #ccc;
+  text-align: center;
+  grid-row: 1 / 65;
+}
