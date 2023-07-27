@@ -11,7 +11,15 @@
 }
 
 .day {
-  grid-row: 1 / 65;
+  grid-row: 1 / 67;
   border-left: 1px solid #ccc;
   text-align: center;
+}
+
+.floor {
+  grid-row: 66;
+  text-align: center;
+  background: #eee;
+  padding: 5px 0px;
+  margin: 2px
 }

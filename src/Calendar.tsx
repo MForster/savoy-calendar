@@ -29,10 +29,14 @@ export default function Calendar() {
     </div>
 
     <div className="calendar">
-      {[...Array(7).keys()].map(day =>
+      {[...Array(7).keys()].map(day => <>
         <div className="day" key={day} style={{
           gridColumn: `${day * 3 + 2} / span 3`
         }}>{DAY_FMT.format(date.getTime() + day * DAYS)}</div>
+        <div className="floor" style={{ gridColumn: `${day * 3 + 2}` }}>Saal 1</div>
+        <div className="floor" style={{ gridColumn: `${day * 3 + 3}` }}>Saal 2</div>
+        <div className="floor" style={{ gridColumn: `${day * 3 + 4}` }}>Saal 3</div>
+      </>
       )}
       {[...Array(16).keys()].map(hour =>
         <div className="hour" key={hour} style={{
