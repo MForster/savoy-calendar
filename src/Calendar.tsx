@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Calendar.css'
 import Event from './Event.tsx'
-import { Data, fetchData } from './data.ts'
+import { EventData, fetchData } from './data.ts'
 
 const DAYS = 24 * 60 * 60 * 1000
 
@@ -15,19 +15,10 @@ function startOfWeek(date: Date): Date {
 
 export default function Calendar() {
   const [date, setDate] = useState(startOfWeek(new Date()))
-
-  const [data1, setData1] = useState<Data>()
-  const [data2, setData2] = useState<Data>()
-  const [data3, setData3] = useState<Data>()
+  const [events, setEvents] = useState<[number[], EventData][]>()
 
   useEffect(() => {
-    const floor1 = "cafed7a0ea7ede3dc2abdcb1af7a8ce7de4a0348508655510ec673a6a2097ba0%40group.calendar.google.com"
-    const floor2 = "23f000f0d58614525d3995bad740adee45252d2381a5c7a25b2e7a6710ad48e8%40group.calendar.google.com"
-    const floor3 = "f8af0ec05dc660695eca9dfb723beb221ffd05369b4f0550eca64e2dac195442%40group.calendar.google.com"
-
-    fetchData(floor1, date).then(setData1).catch(console.error)
-    fetchData(floor2, date).then(setData2).catch(console.error)
-    fetchData(floor3, date).then(setData3).catch(console.error)
+    fetchData(date).then(setEvents).catch(console.error)
   }, [date])
 
   return <>
@@ -48,9 +39,7 @@ export default function Calendar() {
           gridRow: hour * 4 + 2,
         }}>{hour + 8}:00</div>
       )}
-      {data1?.items.map(event => <Event event={event} key={event.id} floor={1} />)}
-      {data2?.items.map(event => <Event event={event} key={event.id} floor={2} />)}
-      {data3?.items.map(event => <Event event={event} key={event.id} floor={3} />)}
+      {events?.map(event => <Event event={event[1]} floors={event[0]} key={event[1].id} />)}
     </div>
   </>
 }
